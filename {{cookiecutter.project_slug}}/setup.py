@@ -10,9 +10,17 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-setup_requirements = [{%- if cookiecutter.use_pytest == 'y' %}'pytest-runner',{%- endif %} ]
+def parse_requirements(file):
+    with open(file, "r") as fs:
+        return [r for r in fs.read().splitlines() if
+                (len(r.strip()) > 0 and not r.strip().startswith("#") and not r.strip().startswith("--"))]
 
-test_requirements = [{%- if cookiecutter.use_pytest == 'y' %}'pytest>=3',{%- endif %} ]
+requirements = parse_requirements('requirements.txt')
+
+test_requirements = parse_requirements('requirements-dev.txt')
+
+setup_requirements = ['pytest-runner',]
+
 
 {%- set license_classifiers = {
     'MIT license': 'License :: OSI Approved :: MIT License',

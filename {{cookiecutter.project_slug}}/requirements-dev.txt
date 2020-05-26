@@ -2,11 +2,13 @@ black==18.9b0
 bump2version==0.5.11
 {% if cookiecutter.use_hypothesis == 'y' -%}
 hypothesis>=4.4.3{% endif %}
-mypy==0.660
+{% if cookiecutter.use_coverage == 'y' -%}
+mypy==0.770
+pytest-mypy==0.3.2{% endif %}
 pip==19.2.3
 pre-commit==2.3.0
 pytest==5.2.0
-pytest-cov==2.5.1
-pytest-mypy==0.3.2
+{% if cookiecutter.use_coverage == 'y' -%}
+pytest-cov==2.5.1{% endif %}
 pytest-runner==5.1
 Sphinx==1.8.5
