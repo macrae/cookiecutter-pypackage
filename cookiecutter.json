@@ -9,6 +9,15 @@
   "use_mypy": "y",
   "use_coverage": "y",
   "use_hypothesis": "y",
+  "use_metaflow": "y",
+  "use_argparse": "y",
   "create_author_file": "y",
-  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"]
+  "open_source_license": [
+    "MIT license",
+    "BSD license",
+    "ISC license",
+    "Apache Software License 2.0",
+    "GNU General Public License v3",
+    "Not open source"
+  ]
 }
